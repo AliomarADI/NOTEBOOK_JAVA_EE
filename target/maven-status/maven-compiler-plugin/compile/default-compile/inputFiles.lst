@@ -1,0 +1,10 @@
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\HelloServlet.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\model\User.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\dao\NotebookDAO.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\dao\UserDAO.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\connection\DBConnection.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\model\Notebook.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\servlets\LogoutServlet.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\servlets\RegisterServlet.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\servlets\CreateNoteServlet.java
+D:\PrLang\JAVA_EE\NOTEBOOK\src\main\java\com\example\NOTEBOOK\servlets\LoginServlet.java
