@@ -14,7 +14,7 @@
 
 <%--<jsp:include page="header.jsp"></jsp:include>--%>
 <jsp:include page="header.jsp"></jsp:include>
-
+<%%>
 <div class="p-5 text-center bg-light text-dark">
     <h1 class="mb-3">Бесплатный браузерный текстовой редактор</h1>
     <h4 class="mb-3">Простой онлайн-инструмент, который делает запись заметок проще и удобнее</h4>

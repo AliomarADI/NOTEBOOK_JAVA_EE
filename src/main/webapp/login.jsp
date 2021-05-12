@@ -35,7 +35,7 @@
 
 <center>
     <div style="text-align: center">
-        <h1>Admin Login</h1>
+        <h1> Login</h1>
         <form action="/loginServlet" method="post">
 
             <input name="username" size="30" placeholder="Username"/>

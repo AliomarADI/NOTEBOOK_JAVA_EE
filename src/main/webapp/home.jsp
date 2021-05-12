@@ -28,7 +28,7 @@
 <div class="container">
     <div class="raw">
         <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-6">
             <div class="card text-center">
                 <div class="card-header">
                     Info about User
@@ -44,7 +44,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-4"></div>
+        <div class="col-2"></div>
     </div>
 </div>
 
