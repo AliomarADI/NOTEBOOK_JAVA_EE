@@ -1,11 +1,12 @@
 com\example\NOTEBOOK\dao\NotebookDAO.class
 com\example\NOTEBOOK\HelloServlet.class
-com\example\NOTEBOOK\model\User.class
 com\example\NOTEBOOK\servlets\AddNoteToList.class
-com\example\NOTEBOOK\dao\UserDAO.class
 com\example\NOTEBOOK\servlets\LoginServlet.class
 com\example\NOTEBOOK\servlets\LogoutServlet.class
-com\example\NOTEBOOK\servlets\RegisterServlet.class
 com\example\NOTEBOOK\model\Notebook.class
+com\example\NOTEBOOK\model\User.class
+com\example\NOTEBOOK\dao\UserDAO.class
+com\example\NOTEBOOK\servlets\RegisterServlet.class
 com\example\NOTEBOOK\servlets\CreateNoteServlet.class
+com\example\NOTEBOOK\servlets\ListItem.class
 com\example\NOTEBOOK\connection\DBConnection.class

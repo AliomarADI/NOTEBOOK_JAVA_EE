@@ -24,7 +24,7 @@
 
     <%! String napisatZametku = "Написать заметку..."; %>
 
-    <a class="btn btn-primary" href="" role="button"><%= napisatZametku %></a>
+    <button class="btn btn-primary" href="" role="button"><%= napisatZametku %></button>
 </div>
 <!-- Jumbotron -->
 <%--  <center>--%>

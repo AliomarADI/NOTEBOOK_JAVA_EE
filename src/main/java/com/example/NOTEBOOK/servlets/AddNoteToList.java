@@ -25,8 +25,8 @@ public class AddNoteToList extends HttpServlet {
         Notebook notebook = new Notebook();
         NotebookDAO noteDAO = new NotebookDAO();
 
-        notebook.setTitle("");
-        notebook.setText("");
+        notebook.setTitle("new Title");
+        notebook.setText("Text");
         notebook.setUser_id(user.getId());
         String isSuccess = noteDAO.createNote(notebook);
 

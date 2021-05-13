@@ -85,4 +85,67 @@ public class NotebookDAO {
             }
         }
     }
+
+    public String updateNote(Notebook notebook)
+    {
+        System.out.println("Notebooook: " + notebook.getId() + notebook.getTitle()+ notebook.getText());
+
+        String title = notebook.getTitle();
+        String text = notebook.getText();
+        int user_id = notebook.getUser_id();
+        int id = notebook.getId();
+
+
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        try
+        {
+            con = DBConnection.createConnection();
+
+            String update_query = "update notebooks set title = ?, text = ? where id = ?";
+            preparedStatement = con.prepareStatement(update_query);
+
+            preparedStatement.setString(1, title);
+            preparedStatement.setString(2, text);
+            preparedStatement.setInt(3, id);
+
+
+            int i= preparedStatement.executeUpdate();
+
+            if (i!=0)  //Just to ensure data has been inserted into the database
+                return "SUCCESS";
+        }
+        catch(
+                SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return "Oops.. Something went wrong there..!";  // On failure, send a message from here.
+    }
+
+    public Notebook getNotebook(String title, String text) throws SQLException,
+            ClassNotFoundException {
+
+        Connection connection = DBConnection.createConnection();
+        String sql = "SELECT * FROM notebooks WHERE title = ? and text = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, title);
+        statement.setString(2, text);
+
+        ResultSet result = statement.executeQuery();
+
+        Notebook notebook = new Notebook();
+
+        if (result.next()) {
+            notebook.setId(result.getInt("id"));
+            notebook.setTitle(result.getString("title"));
+            notebook.setText(result.getString("text"));
+        }
+
+        connection.close();
+
+        return notebook;
+    }
+
+
 }

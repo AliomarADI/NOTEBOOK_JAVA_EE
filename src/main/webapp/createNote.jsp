@@ -49,15 +49,33 @@
         <div class="container text-dark">
             <div class="col" style="border: black 1px solid">
 
+                <%
+                    String inputValue ="";
+                    String textAreaValue ="";
+                %>
+
                 <% for (Notebook notebook: user.getNotebooks()){ %>
-                <button href="#" class="btn btn-light w-100">
-                <div class="card w-100">
+                <form action="/createNoteServlet" method="get">
+                    <button type="submit" class="btn btn-light w-100">
+                        <div class="card w-100">
+                            <%
+                                inputValue = notebook.getTitle();
+                                textAreaValue = notebook.getText();
 
-                        <h5 class="card-title"><%=notebook.getTitle()%></h5>
-                        <p class="card-text"><%=notebook.getText()%></p>
+                                int id = notebook.getId();
+                                request.setAttribute("id",id);
+                            %>
+                            <input name="idInput" type="number" hidden  value="<%=id%>">
+                            <input name="titleInput" hidden value="<%=inputValue%>">
+                            <textarea name="textInput" hidden value="<%=inputValue%>"><%=textAreaValue%></textarea>
 
-                </div>
-                </button>
+                            <h5 class="card-title"><%=notebook.getTitle()%></h5>
+                            <p class="card-text"><%=notebook.getText()%></p>
+
+                        </div>
+                    </button>
+                </form>
+
                 <% }%>
             </div>
 
@@ -67,9 +85,10 @@
     </div>
     <div class="col-9">
         <form action="/createNoteServlet" method="post">
-
-            <input class="input-group" name="title" type="text" placeholder="Title" style="width: 100%;margin-top: 1%">
-            <textarea class="input-group" name="text" placeholder="Text" style="width: 100%; height: 100%;"></textarea>
+            <input name="id" hidden value="<%=request.getParameter("idInput")%>">
+            <input name="title" value="<%=request.getParameter("titleInput")%>" class="input-group"  type="text" placeholder="Title" style="width: 100%;margin-top: 1%">
+            <textarea  class="input-group" name="text"
+                       placeholder="Text" style="width: 100%; height: 100%;"><%=request.getParameter("textInput")%></textarea>
             <br>
             <button class="btn btn-success" type="submit">Сохранить</button>
         </form>
@@ -79,23 +98,3 @@
 
 </body>
 </html>
-<%--<form action="/createNoteServlet" method="post">--%>
-
-<%--    <div class="row">--%>
-<%--        <div class="col-9">--%>
-<%--            <input name="title" type="text" class="input-group" placeholder="Title">--%>
-<%--            <br>--%>
-<%--            <div class="form-group">--%>
-<%--                <textarea name="text" placeholder="Text" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>--%>
-<%--            </div>--%>
-
-<%--        </div>--%>
-<%--        <br>--%>
-<%--        <div class="col-3">--%>
-<%--            <button type="submit" class="btn btn-primary">Создать заметку</button>--%>
-<%--            <button type="submit" class="btn btn-primary" style="margin-right: 0%">Назад</button>--%>
-<%--        </div>--%>
-
-<%--    </div>--%>
-
-<%--</form>--%>
