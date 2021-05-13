@@ -1,6 +1,7 @@
 com\example\NOTEBOOK\dao\NotebookDAO.class
 com\example\NOTEBOOK\HelloServlet.class
 com\example\NOTEBOOK\model\User.class
+com\example\NOTEBOOK\servlets\AddNoteToList.class
 com\example\NOTEBOOK\dao\UserDAO.class
 com\example\NOTEBOOK\servlets\LoginServlet.class
 com\example\NOTEBOOK\servlets\LogoutServlet.class
