@@ -46,9 +46,6 @@
                         </li>
 
                     </ul>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" style="float: right" href="logout.jsp">Logout</a>
-                    </li>
                     <li class="nav-item text-white" style="float: right">
                         <jsp:include page="TagLibTime.jsp"></jsp:include>
                     </li>

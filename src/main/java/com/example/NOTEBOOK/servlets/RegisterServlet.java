@@ -1,12 +1,14 @@
 package com.example.NOTEBOOK.servlets;
 
 import com.example.NOTEBOOK.dao.UserDAO;
+import com.example.NOTEBOOK.model.Notebook;
 import com.example.NOTEBOOK.model.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "registerServlet", value = "/registerServlet")
 public class RegisterServlet extends HttpServlet {
@@ -24,9 +26,12 @@ public class RegisterServlet extends HttpServlet {
 
         User registerBean = new User();
         //Using Java Beans - An easiest way to play with group of related data
+        ArrayList<Notebook> notebooks = new ArrayList<>();
+
 
         registerBean.setUsername(username);
         registerBean.setPassword(password);
+        registerBean.setNotebooks(notebooks);
 
         UserDAO registerDao = new UserDAO();
 

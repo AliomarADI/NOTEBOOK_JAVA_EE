@@ -12,6 +12,14 @@ public class User {
 
     public User() { }
 
+    public void addNote(Notebook notebook){
+        notebooks.add(notebook);
+    }
+
+    public void removeNote(Notebook notebook){
+        notebooks.remove(notebook);
+    }
+
     public int getId() {
         return id;
     }

@@ -1,9 +1,11 @@
 package com.example.NOTEBOOK.dao;
 
 import com.example.NOTEBOOK.connection.DBConnection;
+import com.example.NOTEBOOK.model.Notebook;
 import com.example.NOTEBOOK.model.User;
 
 import java.sql.*;
+import java.util.List;
 
 public class UserDAO {
 
@@ -22,9 +24,13 @@ public class UserDAO {
 
         if (result.next()) {
             user = new User();
+            user.setId(result.getInt("id"));
             user.setUsername(result.getString("username"));
             user.setPassword(result.getString("password"));
         }
+        // return to user list of notebooks
+        NotebookDAO notebookDAO = new NotebookDAO();
+        user.setNotebooks(notebookDAO.getByUserId(user));
 
         connection.close();
 
@@ -62,4 +68,6 @@ public class UserDAO {
         }
         return "Oops.. Something went wrong there..!";  // On failure, send a message from here.
     }
+
+
 }

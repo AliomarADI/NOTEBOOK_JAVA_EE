@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.NOTEBOOK.model.User" %>
+<%@ page import="com.example.NOTEBOOK.model.Notebook" %><%--
   Created by IntelliJ IDEA.
   User: Echo
   Date: 25.04.2021
@@ -18,12 +19,18 @@
             crossorigin="anonymous"></script>
 
 </head>
+
+<% HttpSession http = request.getSession();%>
+<% User user = (User) http.getAttribute("user");%>
+
 <body style="background-color: rgba(249,249,249,1)">
 <div class="row">
     <div style="background-color: rgba(11,11,11,1); width: 100%; height: auto">
         <br>
         <span style="margin-left: 5%" class="text-white">БЛОКНОТ ОНЛАЙН</span>
-        <a href="index.jsp" style="float: right;margin-right: 1% ;text-decoration-line: none" class="text-white">ВЫЙТИ</a>
+        <form action="/logoutServlet" method="post" >
+            <a type="submit" href="index.jsp" style="float: right;margin-right: 1% ;text-decoration-line: none" class="text-white">ВЫЙТИ</a>
+        </form>
         <br>
         <br>
     </div>
@@ -34,17 +41,24 @@
     <div class="col-3">
         <div class="container">
             <br>
-            <button class="btn btn-primary" style="width: 70%">+ Создать новую запись</button>
+            <form action="/AddingNote" method="post">
+                <button class="btn btn-primary"  style="width: 70%">+ Создать новую запись</button>
+            </form>
         </div>
         <hr style="width: 102.5%">
-        <div class="container">
+        <div class="container text-dark">
             <div class="col" style="border: black 1px solid">
+
+                <% for (Notebook notebook: user.getNotebooks()){ %>
+                <button href="#" class="btn btn-light w-100">
                 <div class="card w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Title</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    </div>
+
+                        <h5 class="card-title"><%=notebook.getTitle()%></h5>
+                        <p class="card-text"><%=notebook.getText()%></p>
+
                 </div>
+                </button>
+                <% }%>
             </div>
 
         </div>
@@ -52,8 +66,14 @@
 
     </div>
     <div class="col-9">
-        <input type="text" placeholder="Title" style="width: 100%;margin-top: 1%">
-        <textarea placeholder="Text" style="width: 100%; height: 260%;"></textarea>
+        <form action="/createNoteServlet" method="post">
+
+            <input class="input-group" name="title" type="text" placeholder="Title" style="width: 100%;margin-top: 1%">
+            <textarea class="input-group" name="text" placeholder="Text" style="width: 100%; height: 100%;"></textarea>
+            <br>
+            <button class="btn btn-success" type="submit">Сохранить</button>
+        </form>
+
     </div>
 </div>
 
